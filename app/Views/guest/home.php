@@ -32,9 +32,9 @@
                         <i class="fab fa-connectdevelop"></i>
                     </div>
                     <div class="promo-block-content">
-                        <h5>Smart City</h5>
+                        <h5>Smart People</h5>
                         <p class="mb-0">
-                            Menjadi Desa yang cerdas dan berdaya saing tinggi
+                            Memiliki masyarakat yang cerdas dan berdaya saing tinggi
                         </p>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <div class="promo-block-content">
                         <h5>Smart Environment</h5>
                         <p class="mb-0">
-                            Menjadi Desa yang cerdas dan berdaya saing tinggi
+                            Memiliki lingkungan yang bersih, sehat, dan asri
                         </p>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
 </section>
 <!--cta section end-->
 <!--portfolio section start-->
-<section id="activities" class="section section-lg">
+<section id="kegiatandesa" class="section section-lg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -206,7 +206,7 @@
 </section>
 <!--portfolio section end-->
 <!--cta section start-->
-<section id="contact" class="section section-sm py-5">
+<section id="kampungpintar" class="section section-sm py-5">
     <div class="container">
         <div class="row justify-content-around align-items-center">
             <div class="col-md-7">
