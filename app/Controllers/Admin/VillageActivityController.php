@@ -27,6 +27,12 @@ class VillageActivityController extends BaseController
                 ->edit('image', function ($row) {
                     return '<img src="' . base_url('uploads/' . $row->image) . '" width="50" height="50">';
                 })
+                ->edit('video', function ($row) {
+                    return $row->video ? "<a href='$row->video' target='_blank'>Watch Video</a>" : '-';
+                })
+                ->edit('description', function ($row) {
+                    return mb_strimwidth($row->description, 0, 100, '...');
+                })
                 ->add('action', function ($row) {
                     $actionBtn = "<ul class='action'> 
                         <li class='edit'> 

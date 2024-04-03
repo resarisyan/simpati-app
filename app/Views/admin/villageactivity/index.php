@@ -21,7 +21,9 @@ $this->section('dataTable');
         },
         {
             data: 'description',
-            name: 'description'
+            name: 'description',
+            orderable: false,
+            searchable: false
         },
         {
             data: 'caption',
@@ -36,6 +38,8 @@ $this->section('dataTable');
         {
             data: 'video',
             name: 'video',
+            orderable: false,
+            searchable: false
         },
         {
             data: 'action',

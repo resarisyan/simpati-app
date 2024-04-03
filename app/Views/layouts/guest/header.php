@@ -11,7 +11,7 @@
                       <div class="row">
                           <div class="col-6 collapse-brand">
                               <a href="#">
-                                  <img src="assets/img/logo-color.png" alt="menuimage" />
+                                  <img src="<?= base_url('corpox-template/assets/img/logo-color.png') ?>" alt="menuimage" />
                               </a>
                           </div>
                           <div class="col-6 collapse-close">

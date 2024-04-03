@@ -26,6 +26,9 @@ class CallCenterController extends BaseController
                 ->edit('image', function ($row) {
                     return '<img src="' . base_url('uploads/' . $row->image) . '" width="50" height="50">';
                 })
+                ->edit('link', function ($row) {
+                    return "<a href='$row->link' target='_blank'>" . mb_strimwidth($row->link, 0, 50, '...') . "</a>";
+                })
                 ->add('action', function ($row) {
                     $actionBtn = "<ul class='action'> 
                         <li class='edit'> 
