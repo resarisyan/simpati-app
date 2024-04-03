@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class VillageActivity extends Model
 {
-    protected $table            = 'villageactivities';
+    protected $table            = 'village_activities';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['title', 'description', 'caption', 'image', 'slug', 'video'];
 
     protected bool $allowEmptyInserts = false;
 

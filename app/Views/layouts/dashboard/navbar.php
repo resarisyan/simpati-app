@@ -7,7 +7,33 @@
             <h6>Pinned</h6>
         </li>
         <hr>
-        <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="home"></i><span class="lan-3">Dashboard</span></a></li>
-        <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="javascript:void(0)"><i data-feather="users"> </i><span>Support Ticket</span></a></li>
+        <li class="sidebar-list">
+            <i class="fa fa-thumb-tack"></i>
+            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('home_index') ?>">
+                <i data-feather="home"> </i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="sidebar-list">
+            <i class="fa fa-thumb-tack"></i>
+            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('about_index') ?>">
+                <i data-feather="user"> </i>
+                <span>About</span>
+            </a>
+        </li>
+        <li class="sidebar-list">
+            <i class="fa fa-thumb-tack"></i>
+            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('call_center_index') ?>">
+                <i data-feather="phone"> </i>
+                <span>Call Center</span>
+            </a>
+        </li>
+        <li class="sidebar-list">
+            <i class="fa fa-thumb-tack"></i>
+            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('village_activity_index') ?>">
+                <i data-feather="hash"> </i>
+                <span>Kegiatan Desa</span>
+            </a>
+        </li>
     </ul>
 </div>

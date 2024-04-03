@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class CallCenter extends Model
 {
-    protected $table            = 'callcenters';
+    protected $table            = 'call_centers';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['name', 'caption', 'link', 'image'];
 
     protected bool $allowEmptyInserts = false;
 

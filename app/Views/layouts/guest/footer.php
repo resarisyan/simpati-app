@@ -4,7 +4,7 @@
              <div class="row">
                  <div class="col-sm-6 col-lg-4 mb-4">
                      <a class="footer-brand mr-lg-5 d-flex" href="index.html">
-                         <img src="assets/images/simpati-light.png" class="mr-3" alt="Footer logo" />
+                         <img src="<?= base_url('corpox-template/assets/images/simpati-light.png') ?>" class="mr-3" alt="Footer logo" />
                      </a>
                      <p class="my-4">
                          Desa Sukamanah adalah sebuah desa yang terletak di Kecamatan

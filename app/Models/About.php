@@ -12,7 +12,7 @@ class About extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['description', 'image'];
 
     protected bool $allowEmptyInserts = false;
 

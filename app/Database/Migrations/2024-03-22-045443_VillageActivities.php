@@ -34,6 +34,11 @@ class VillageActivities extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'video' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+                'null' => true,
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

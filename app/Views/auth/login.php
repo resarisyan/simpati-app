@@ -4,7 +4,7 @@
 <form class="theme-form" <?= url_to('login') ?>" method="post">
     <?= csrf_field() ?>
     <h4 class="text-center"><?= lang('Auth.login') ?></h4>
-    <p class="text-center">Enter your email & password to login</p>
+    <p class="text-center">Enter your username & password to login</p>
 
     <?php if (session('error') !== null) : ?>
         <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
@@ -26,8 +26,8 @@
     <?php endif ?>
 
     <div class="form-group">
-        <label class="col-form-label" for="email"><?= lang('Auth.email') ?></label>
-        <input class="form-control" id="email" type="email" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required>
+        <label class="col-form-label" for="username"><?= lang('Auth.username') ?></label>
+        <input class="form-control" id="username" type="text" name="username" inputmode="username" autocomplete="username" placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>" required>
     </div>
     <div class="form-group">
         <label class="col-form-label" for="password"><?= lang('Auth.password') ?></label>

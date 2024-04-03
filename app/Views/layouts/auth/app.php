@@ -5,8 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="<?= base_url('assets/images/favicon/favicon.png" type="image/x-icon') ?>">
-    <link rel="shortcut icon" href="<?= base_url('assets/images/favicon/favicon.png" type="image/x-icon') ?>">
+    <link rel="icon" href="<?= base_url('tivo-template/assets/images/favicon.ico') ?>" type="image/png" sizes="16x16" />
     <title><?= $this->renderSection('title') ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +44,7 @@
             <div class="col-12 p-0">
                 <div class="login-card">
                     <div>
-                        <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="<?= base_url('tivo-template/assets/images/logo/logo2.png') ?>" alt="looginpage"></a></div>
+                        <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="<?= base_url('tivo-template/assets/images/logo-light.png') ?>" alt="looginpage"></a></div>
                         <div class="login-main">
                             <?= $this->renderSection('main'); ?>
                         </div>

@@ -2,9 +2,9 @@
   <header class="header position-relative z-9">
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-primary fixed-top headroom">
           <div class="container position-relative">
-              <a class="navbar-brand mr-lg-3" href="index.html">
-                  <img class="navbar-brand-dark" src="assets/images/simpati-light.png" alt="menuimage" />
-                  <img class="navbar-brand-light" src="assets/images/simpati-dark.png" alt="menuimage" />
+              <a class="navbar-brand mr-lg-3" href="<?= site_url() ?>">
+                  <img class="navbar-brand-dark" src="<?= base_url('corpox-template/assets/images/simpati-light.png') ?>" alt="menuimage" />
+                  <img class="navbar-brand-light" src="<?= base_url('corpox-template/assets/images/simpati-dark.png') ?>" alt="menuimage" />
               </a>
               <div class="navbar-collapse collapse" id="navbar-default-primary">
                   <div class="navbar-collapse-header">
@@ -19,7 +19,7 @@
                           </div>
                       </div>
                   </div>
-                  <?= $this->include('layouts/navbar'); ?>
+                  <?= $this->include('layouts/guest/navbar'); ?>
               </div>
               <div class="d-flex align-items-center">
                   <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar-default-primary" aria-controls="navbar-default-primary" aria-expanded="false" aria-label="Toggle navigation">

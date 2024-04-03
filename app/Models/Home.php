@@ -12,7 +12,7 @@ class Home extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['title', 'description', 'caption', 'image'];
 
     protected bool $allowEmptyInserts = false;
 
