@@ -11,6 +11,7 @@
     <title>SIMPATI</title>
     <!--build:css-->
     <link rel="stylesheet" href="<?= base_url('corpox-template/assets/css/main.css'); ?>" />
+    <?= $this->renderSection('styles'); ?>
     <!-- endbuild -->
 </head>
 

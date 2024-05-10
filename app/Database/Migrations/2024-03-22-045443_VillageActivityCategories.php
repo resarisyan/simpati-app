@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class VillageActivities extends Migration
+class VillageActivityCategories extends Migration
 {
     public function up()
     {
@@ -34,11 +34,6 @@ class VillageActivities extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ],
-            'video' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => true,
-            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -49,11 +44,11 @@ class VillageActivities extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('village_activities');
+        $this->forge->createTable('village_activity_categories');
     }
 
     public function down()
     {
-        $this->forge->dropTable('village_activities');
+        $this->forge->dropTable('village_activity_categories');
     }
 }

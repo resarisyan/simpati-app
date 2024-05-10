@@ -15,11 +15,6 @@
         <div class="mt-2 error_text text-danger description_error"></div>
     </div>
     <div class="col-md-12">
-        <label class="form-label d-block" for="video">Video</label>
-        <input class="form-control" id="video" type="text" name="video">
-        <div class="mt-2 error_text text-danger video_error"></div>
-    </div>
-    <div class="col-md-12">
         <label class="form-label" for="image">Image</label>
         <input class="form-control" id="image" type="file" aria-label="image" name="image">
         <div class="mt-2 error_text text-danger image_error"></div>

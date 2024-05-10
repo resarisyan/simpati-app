@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class VillageActivity extends Model
+class VillageActivityPost extends Model
 {
-    protected $table            = 'village_activities';
+    protected $table            = 'village_activity_posts';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'description', 'caption', 'image', 'slug', 'video'];
+    protected $allowedFields    = ['category_id', 'title', 'content', 'image', 'slug'];
 
     protected bool $allowEmptyInserts = false;
 
@@ -39,4 +39,9 @@ class VillageActivity extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function category()
+    {
+        return $this->belongsTo(VillageActivityCategory::class, 'category_id', 'id');
+    }
 }

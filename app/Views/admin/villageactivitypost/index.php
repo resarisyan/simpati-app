@@ -1,31 +1,18 @@
 <?php
 $this->extend('layouts/dashboard/app');
 
-$this->section('form');
-require_once 'form.php';
-$this->endSection();
-
 $this->section('dataTable');
 ?>
 <script type="text/javascript">
-    const url = "<?= route_to('call_center_index'); ?>";
-    const modalTitle = 'Call Center';
-    const forms = ['name', 'caption', 'link', 'image'];
+    const modalTitle = 'Village Activity Post';
+    const url = "<?= route_to('village_activity_post_index', $category_slug); ?>";
     const dataColumn = [{
             data: 'no',
             orderable: false
         },
         {
-            data: 'name',
-            name: 'name'
-        },
-        {
-            data: 'caption',
-            name: 'caption'
-        },
-        {
-            data: 'link',
-            name: 'link'
+            data: 'title',
+            name: 'title'
         },
         {
             data: 'image',
@@ -41,5 +28,10 @@ $this->section('dataTable');
         }
     ];
 </script>
-<?php
-$this->endSection();
+<?php $this->endSection(); ?>
+
+<?php $this->section('headerCard'); ?>
+<a class="btn btn-sm btn-primary" href="<?= route_to('village_activity_post_create', $category_slug); ?>">
+    <em class="icon-plus"></em><span> Tambah</span>
+</a>
+<?php $this->endSection(); ?>

@@ -32,6 +32,8 @@
     <link id="color" rel="stylesheet" href="<?= base_url('tivo-template/assets/css/color-1.css') ?>" media="screen">
     <!-- Responsive css-->
     <link rel=" stylesheet" type="text/css" href="<?= base_url('tivo-template/assets/css/responsive.css') ?>">
+
+    <?= $this->renderSection('styles') ?>
 </head>
 
 <body>
@@ -98,6 +100,8 @@
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-header pb-0 mb-4">
+                                        <?= $this->renderSection('headerCard') ?>
+                                        
                                         <?php if (isset($create)) : ?>
                                             <a class="btn btn-sm btn-primary" href="javascript:void(0)" id="btnCreate" data-bs-toggle="modal" data-bs-target="#modalForm">
                                                 <em class="icon-plus"></em><span> Tambah</span>
@@ -129,8 +133,8 @@
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                            <?php endif; ?>
                             </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <!-- Container-fluid Ends-->
@@ -185,6 +189,8 @@
         <!-- Template js-->
         <script src="<?= base_url('tivo-template/assets/js/script.js') ?>"></script>
         <!-- login js-->
+
+        <?= $this->renderSection('scripts') ?>
 
         <script type="text/javascript">
             const swalWithBootstrapButtons = Swal.mixin({

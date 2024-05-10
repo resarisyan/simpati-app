@@ -3,32 +3,29 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\VillageActivity;
+use App\Models\VillageActivityCategory;
 use CodeIgniter\API\ResponseTrait;
 use Hermawan\DataTables\DataTable;
 use Mberecall\CI_Slugify\SlugService;
 
-class VillageActivityController extends BaseController
+class VillageActivityCategoryController extends BaseController
 {
     use ResponseTrait;
     protected $model;
 
     public function __construct()
     {
-        $this->model = new VillageActivity();
+        $this->model = new VillageActivityCategory();
     }
 
     public function index()
     {
         if ($this->request->isAJAX()) {
-            $builder = $this->model->select('id, title, description, caption, image, video');
+            $builder = $this->model->select('id, title, description, caption, image');
             return DataTable::of($builder)
                 ->addNumbering('no')
                 ->edit('image', function ($row) {
                     return '<img src="' . base_url('uploads/' . $row->image) . '" width="50" height="50">';
-                })
-                ->edit('video', function ($row) {
-                    return $row->video ? "<a href='$row->video' target='_blank'>Watch Video</a>" : '-';
                 })
                 ->edit('description', function ($row) {
                     return mb_strimwidth($row->description, 0, 100, '...');
@@ -49,17 +46,17 @@ class VillageActivityController extends BaseController
         }
 
         $data = [
-            'title' => 'Village Activity',
+            'title' => 'Village Activity Category',
             'breadcrumbs' => [
-                'Village Activity' => site_url('village-activity')
+                'Village Activity Category' => site_url('village-activity-category')
             ],
-            'forms' => ['No', 'Title', 'Description', 'Caption', 'Image', 'Video', 'Action'],
+            'forms' => ['No', 'Title', 'Description', 'Caption', 'Image', 'Action'],
             'dataTable' => true,
             'create' => true,
             'edit' => true,
             'delete' => true
         ];
-        return view('admin/villageactivity/index', $data);
+        return view('admin/villageactivitycategory/index', $data);
     }
 
     public function edit($id)
@@ -80,11 +77,10 @@ class VillageActivityController extends BaseController
     {
         try {
             $rules = [
-                'title' => 'required|is_unique[village_activities.title]',
+                'title' => 'required|is_unique[village_activity_categories.title]',
                 'description' => 'required',
                 'caption' => 'required',
                 'image' => 'uploaded[image]|max_size[image,1024]|ext_in[image,jpg,jpeg,png]',
-                'video' => 'permit_empty|valid_url'
             ];
 
             if (!$this->validate($rules)) {
@@ -98,8 +94,7 @@ class VillageActivityController extends BaseController
             $data['title'] = $this->request->getPost('title');
             $data['description'] = $this->request->getPost('description');
             $data['caption'] = $this->request->getPost('caption');
-            $data['video'] = $this->request->getPost('video');
-            $data['slug'] = SlugService::model(VillageActivity::class)->make($data['title']);
+            $data['slug'] = SlugService::model(VillageActivityCategory::class)->make($data['title']);
             $this->model->save($data);
             return $this->respondCreated(['message' => 'Data village activity created successfully']);
         } catch (\Throwable $th) {
@@ -115,11 +110,10 @@ class VillageActivityController extends BaseController
         try {
             $data = $this->model->find($id);
             $rules = [
-                'title' => 'required|is_unique[village_activities.title,id,' . $id . ']',
+                'title' => 'required|is_unique[village_activity_categories.title,id,' . $id . ']',
                 'description' => 'required',
                 'caption' => 'required',
                 'image' => 'permit_empty|uploaded[image]|max_size[image,1024]|ext_in[image,jpg,jpeg,png]',
-                'video' => 'permit_empty|valid_url'
             ];
 
             if (!$this->validate($rules)) {
@@ -131,14 +125,15 @@ class VillageActivityController extends BaseController
                 $imageName = $image->getRandomName();
                 $image->move('uploads', $imageName);
                 unlink('uploads/' . $data['image']);
+            } else {
+                $imageName = $data['image'];
             }
 
             $data['image'] = $imageName;
             $data['title'] = $this->request->getPost('title');
             $data['description'] = $this->request->getPost('description');
             $data['caption'] = $this->request->getPost('caption');
-            $data['video'] = $this->request->getPost('video');
-            $data['slug'] = SlugService::model(VillageActivity::class)->make($data['title']);
+            $data['slug'] = SlugService::model(VillageActivityCategory::class)->make($data['title']);
             $this->model->save($data);
             return $this->respondUpdated(['message' => 'Data village activity updated successfully']);
         } catch (\Throwable $th) {

@@ -185,10 +185,10 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="owl-carousel owl-theme client-testimonial custom-dot">
-                    <?php foreach ($villageActivity as $value) : ?>
+                    <?php foreach ($villageActivityCategory as $value) : ?>
                         <div class="item">
                             <div class="portfolio-wrapper border border-variant-soft rounded bg-soft p-2">
-                                <a href="<?= base_url('village-activity/' . $value['slug']) ?>">
+                                <a href="<?= route_to('home_village_activity_category', $value['slug']) ?>">
                                     <div class="content-overlay"></div>
                                     <img class="img-fluid" src="<?= base_url('uploads/' . $value['image']) ?>" alt="portfolio" />
                                     <div class="content-details fadeIn-bottom text-white">

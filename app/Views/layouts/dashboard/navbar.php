@@ -30,10 +30,17 @@
         </li>
         <li class="sidebar-list">
             <i class="fa fa-thumb-tack"></i>
-            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('village_activity_index') ?>">
+            <a class="sidebar-link sidebar-title link-nav" href="<?= url_to('village_activity_category_index') ?>">
                 <i data-feather="hash"> </i>
-                <span>Kegiatan Desa</span>
+                <span>Kategori</span>
             </a>
+        </li>
+        <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="file-text"></i><span>Kegiatan Desa</span></a>
+            <ul class="sidebar-submenu">
+                <?php foreach (get_categories() as $category) : ?>
+                    <li><a href="<?= route_to('village_activity_post_index', $category['slug']) ?>"><?= $category['title'] ?></a></li>
+                <?php endforeach; ?>
+            </ul>
         </li>
     </ul>
 </div>

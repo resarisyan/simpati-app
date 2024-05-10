@@ -8,9 +8,9 @@ $this->endSection();
 $this->section('dataTable');
 ?>
 <script type="text/javascript">
-    const url = "<?= url_to('village_activity_index'); ?>";
-    const modalTitle = 'Village Activity';
-    const forms = ['title', 'description', 'caption', 'image', 'video'];
+    const url = "<?= route_to('village_activity_category_index'); ?>";
+    const modalTitle = 'Village Activity Category';
+    const forms = ['title', 'description', 'caption', 'image'];
     const dataColumn = [{
             data: 'no',
             orderable: false
@@ -32,12 +32,6 @@ $this->section('dataTable');
         {
             data: 'image',
             name: 'image',
-            orderable: false,
-            searchable: false
-        },
-        {
-            data: 'video',
-            name: 'video',
             orderable: false,
             searchable: false
         },
