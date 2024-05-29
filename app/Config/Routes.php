@@ -11,11 +11,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+service('auth')->routes($routes);
 $routes->get('/', [Home::class, 'index'], ['as' => 'home']);
 $routes->get('category/(:segment)', [Home::class, 'village_activity_category'], ['as' => 'home_village_activity_category']);
 $routes->get('(:segment)', [Home::class, 'village_activity_post'], ['as' => 'home_village_activity_post']);
 
-service('auth')->routes($routes);
 
 $routes->group(
     'admin',

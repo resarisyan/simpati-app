@@ -15,7 +15,13 @@
                     <p class="lead">
                         <?= $home['description'] ?>
                     </p>
-                    <a href="#" class="btn btn-secondary mt-4">Get Start Now</a>
+                    <?php
+                    if (auth()->loggedIn()) {
+                        echo '<a href="' . route_to('home_index') . '" class="btn btn-secondary mt-4">Dashboard</a>';
+                    } else {
+                        echo '<a href="' . route_to('login') . '" class="btn btn-secondary mt-4">Login</a>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
