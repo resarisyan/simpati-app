@@ -1,5 +1,10 @@
 <?= $this->extend('layouts/guest/app') ?>
 
+<?= $this->section('seo') ?>
+<meta name="description" content="SIMPATI - Sistem Informasi Manajemen Pelayanan Terpadu dan Integrasi. Platform untuk mempermudah pelayanan administrasi dan informasi publik.">
+<meta name="keywords" content="SIMPATI - Desa Sukamanah">
+<?= $this->endSection() ?>
+
 <?= $this->section('main') ?>
 <!--hero section start-->
 <section id="home" class="section pt-9 pb-9 section-header text-white gradient-overly-right-color" style="
@@ -103,8 +108,28 @@
     </div>
 </section>
 <!--about section end-->
+<!--google maps section start-->
+<section id="maps" class="section section-sm bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="section-heading text-center mb-5">
+                    <h2>Lokasi Kami</h2>
+                    <p class="lead">
+                        Temukan kami di peta berikut untuk mengetahui lokasi lebih jelas.
+                    </p>
+                </div>
+                <div class="map-container" style="height: 450px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7163431332065!2d107.1118600751118!3d-6.804320293193128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68529797f3cfff%3A0xcb6fce7ebcfe8977!2sKantor%20Desa%20Sukamanah!5e0!3m2!1sid!2sid!4v1721780871471!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--google maps section end-->
 <!--services section start-->
-<section id="services" class="section services-section ptb-100 bg-soft">
+<section id="call-center" class="section services-section ptb-100 bg-soft">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -140,6 +165,37 @@
     </div>
 </section>
 <!--services section end-->
+
+<!--services section start-->
+<section id="services" class="section services-section ptb-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="section-heading text-center mb-5">
+                    <h2>Layanan</h2>
+                    <p class="lead">
+                        Pilih layanan yang tersedia untuk kemudahan akses informasi dan pelayanan.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach ($services as $service) : ?>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="services-single p-4 bg-white shadow rounded text-center">
+                        <div class="icon mb-3">
+                            <i class="<?= $service['icon'] ?> fa-2x text-primary"></i>
+                        </div>
+                        <h5><?= $service['name'] ?></h5>
+                        <a href="<?= $service['link'] ?>" class="btn btn-primary mt-3" target="_blank">Akses Layanan</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<!--services section end-->
+
 <!--cta section start-->
 <section id="apps" class="section py-0" style="
           background: url('<?= base_url('corpox-template/assets/images/banner-project-detail.jpg') ?>') no-repeat
@@ -191,10 +247,10 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="owl-carousel owl-theme client-testimonial custom-dot">
-                    <?php foreach ($villageActivityCategory as $value) : ?>
+                    <?php foreach ($categories as $value) : ?>
                         <div class="item">
                             <div class="portfolio-wrapper border border-variant-soft rounded bg-soft p-2">
-                                <a href="<?= route_to('home_village_activity_category', $value['slug']) ?>">
+                                <a href="<?= route_to('home_category', $value['slug']) ?>">
                                     <div class="content-overlay"></div>
                                     <img class="img-fluid" src="<?= base_url('uploads/' . $value['image']) ?>" alt="portfolio" />
                                     <div class="content-details fadeIn-bottom text-white">

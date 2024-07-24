@@ -17,7 +17,7 @@
                          <div class="d-flex align-items-center mb-3">
                              <i class="fas fa-map text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
                              <p class="mb-0">
-                                 Jl. Raya Sukamanah No. 1, Sukamanah, Cianjur, Jawa Barat
+                                 Jl. Raya Cugenang Km. 4 No.34 Desa Sukamanah Cugenang, Cianjur Kode Pos 43252
                              </p>
                          </div>
                          <div class="d-flex align-items-center mb-3">
@@ -31,22 +31,30 @@
                      </div>
                  </div>
                  <div class="col-sm-6 col-lg-4 mb-4">
-                     <h5 class="text-white mb-4">Social Media</h5>
+                     <h5 class="text-white mb-4">Link Lembaga Pemerintah</h5>
                      <p>
-                         Ikuti kami di media sosial untuk mendapatkan informasi terkini
-                         seputar Desa Sukamanah.
+                         Berikut adalah daftar link lembaga pemerintah untuk memudahkan akses informasi.
                      </p>
-                     <div class="footer-social">
-                         <div class="btn-wrapper mt-4">
-                             <button class="btn btn-icon-only btn-pill btn-twitter mr-2 icon icon-xs icon-shape" type="button" data-toggle="tooltip" data-placement="top">
-                                 <span aria-hidden="true" class="fab fa-twitter"></span>
-                             </button>
-                             <button class="btn btn-icon-only btn-pill btn-facebook mr-2 icon icon-xs icon-shape" type="button" data-toggle="tooltip" data-placement="top">
-                                 <span aria-hidden="true" class="fab fa-facebook-f"></span>
-                             </button>
-                             <button class="btn btn-icon-only btn-pill btn-youtube mr-2 icon icon-xs icon-shape" type="button" data-toggle="tooltip" data-placement="top">
-                                 <span aria-hidden="true" class="fab fa-youtube"></span>
-                             </button>
+                     <div class="footer-link col-12">
+                         <div class="d-flex align-items-center mb-3">
+                             <i class="fas fa-link text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
+                             <a href="https://sukamanah-cugenang.kampungpinter.co.id/" target="_blank">Kampung Pintar Desa Sukamanah</a>
+                         </div>
+                         <div class="d-flex align-items-center mb-3">
+                             <i class="fas fa-link text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
+                             <a href="https://cianjurkab.go.id/" target="_blank">Pemda Kab. Cianjur</a>
+                         </div>
+                         <div class="d-flex align-items-center mb-3">
+                             <i class="fas fa-link text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
+                             <a href="https://www.kemendagri.go.id/" target="_blank">Kemendagri</a>
+                         </div>
+                         <div class="d-flex align-items-center mb-3">
+                             <i class="fas fa-link text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
+                             <a href="https://www.kemendesa.go.id/" target="_blank">Kemendesa</a>
+                         </div>
+                         <div class="d-flex align-items-center mb-3">
+                             <i class="fas fa-link text-white mr-3 icon-md text-center d-flex align-items-center justify-content-center"></i>
+                             <a href="https://www.kominfo.go.id/" target="_blank">Kemenkominfo</a>
                          </div>
                      </div>
                  </div>

@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\VillageActivityCategory;
+use App\Models\Category;
 
 if (!function_exists('get_categories')) {
     function get_categories()
     {
-        $categoryModel = new VillageActivityCategory();
+        $categoryModel = new Category();
         return $categoryModel->findAll();
     }
 }

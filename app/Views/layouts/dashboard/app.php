@@ -101,7 +101,7 @@
                                 <div class="card">
                                     <div class="card-header pb-0 mb-4">
                                         <?= $this->renderSection('headerCard') ?>
-                                        
+
                                         <?php if (isset($create)) : ?>
                                             <a class="btn btn-sm btn-primary" href="javascript:void(0)" id="btnCreate" data-bs-toggle="modal" data-bs-target="#modalForm">
                                                 <em class="icon-plus"></em><span> Tambah</span>
@@ -444,6 +444,37 @@
                                 }
                             });
                         }
+                    <?php endif; ?>
+
+                    <?php if (isset($status)) :  ?>
+                        $('body').on('change', '.toggle-class', function() {
+                            let status = $(this).prop('checked') == true ? 1 : 0;
+                            let id = $(this).data('id');
+                            console.log(id);
+                            $.ajax({
+                                type: "PUT",
+                                dataType: "json",
+                                url: url + '/status',
+                                data: {
+                                    'status': status,
+                                    'id': id
+                                },
+                                success: function(res) {
+                                    swalWithBootstrapButtons.fire(
+                                        'Success!',
+                                        res.message,
+                                        'success'
+                                    )
+                                },
+                                error: function(res) {
+                                    swalWithBootstrapButtons.fire(
+                                        'Error!',
+                                        res.responseJSON.message,
+                                        'error'
+                                    )
+                                }
+                            });
+                        });
                     <?php endif; ?>
                 });
             </script>

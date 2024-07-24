@@ -5,6 +5,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+    <?= $this->renderSection('seo') ?>
+    <meta name="author" content="Desa Sukamanah">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?= current_url() ?>">
+    <meta property="og:title" content="SIMPATI - Sistem Informasi Manajemen Pelayanan Terpadu dan Integrasi">
+    <meta property="og:description" content="Platform untuk mempermudah pelayanan administrasi dan informasi publik.">
+    <meta property="og:image" content="<?= base_url('corpox-template/assets/images/banner-project-detail.jpg') ?>">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<?= current_url() ?>">
+    <meta property="twitter:title" content="SIMPATI - Sistem Informasi Manajemen Pelayanan Terpadu dan Integrasi">
+    <meta property="twitter:description" content="Platform untuk mempermudah pelayanan administrasi dan informasi publik.">
+    <meta property="twitter:image" content="<?= base_url('corpox-template/assets/images/banner-project-detail.jpg') ?>">
+
     <!--favicon icon-->
     <link rel="icon" href="<?= base_url('corpox-template/assets/images/favicon.ico') ?>" type="image/png" sizes="16x16" />
     <!--title-->
@@ -63,6 +81,38 @@
     <script src="<?= base_url('corpox-template/assets/js/vendors/jquery.countdown.min.js') ?>"></script>
     <script src="<?= base_url('corpox-template/assets/js/vendors/validator.min.js') ?>"></script>
     <script src="<?= base_url('corpox-template/assets/js/app.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: true
+        });
+        <?php if (session()->has('error')) : ?>
+            swalWithBootstrapButtons.fire({
+                title: 'Error!',
+                html: "<?= session('success') ?>",
+                icon: 'error',
+                timer: 3000
+            })
+        <?php elseif (session()->has('success')) : ?>
+            swalWithBootstrapButtons.fire({
+                title: 'Success!',
+                html: "<?= session('success') ?>",
+                icon: 'success',
+                timer: 3000
+            })
+        <?php elseif (session()->has('status')) : ?>
+            swalWithBootstrapButtons.fire({
+                title: 'Success!',
+                html: "<?= session('status') ?>",
+                icon: 'success',
+                timer: 3000
+            })
+        <?php endif; ?>
+    </script>
     <!--endbuild-->
 </body>
 

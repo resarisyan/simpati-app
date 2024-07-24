@@ -3,8 +3,10 @@
 use App\Controllers\Admin\AboutController;
 use App\Controllers\Admin\CallCenterController;
 use App\Controllers\Admin\HomeController;
-use App\Controllers\Admin\VillageActivityCategoryController;
-use App\Controllers\Admin\VillageActivityPostController;
+use App\Controllers\Admin\ServiceController;
+use App\Controllers\Admin\CategoryController;
+use App\Controllers\Admin\LapakUmkmController;
+use App\Controllers\Admin\PostController;
 use App\Controllers\Home;
 use CodeIgniter\Router\RouteCollection;
 
@@ -13,8 +15,12 @@ use CodeIgniter\Router\RouteCollection;
  */
 service('auth')->routes($routes);
 $routes->get('/', [Home::class, 'index'], ['as' => 'home']);
-$routes->get('category/(:segment)', [Home::class, 'village_activity_category'], ['as' => 'home_village_activity_category']);
-$routes->get('(:segment)', [Home::class, 'village_activity_post'], ['as' => 'home_village_activity_post']);
+$routes->get('category/(:segment)', [Home::class, 'category'], ['as' => 'home_category']);
+$routes->get('umkm', [Home::class, 'umkm'], ['as' => 'home_umkm']);
+$routes->get('umkm-create', [Home::class, 'umkm_create'], ['as' => 'home_umkm_create']);
+$routes->post('umkm-store', [Home::class, 'umkm_store'], ['as' => 'home_umkm_store']);
+$routes->get('(:segment)', [Home::class, 'post'], ['as' => 'home_post']);
+
 
 
 $routes->group(
@@ -41,21 +47,38 @@ $routes->group(
             $routes->post('/', [CallCenterController::class, 'store'], ['as' => 'call_center_store']);
         });
 
-        $routes->group('village-activity-category', static function ($routes) {
-            $routes->get('/', [VillageActivityCategoryController::class, 'index'], ['as' => 'village_activity_category_index']);
-            $routes->get('(:num)', [[VillageActivityCategoryController::class, 'edit'], '$1'], ['as' => 'village_activity_category_edit']);
-            $routes->put('(:num)', [[VillageActivityCategoryController::class, 'update'], '$1'], ['as' => 'village_activity_category_update']);
-            $routes->delete('(:num)', [[VillageActivityCategoryController::class, 'destroy'], '$1'], ['as' => 'village_activity_category_destroy']);
-            $routes->post('/', [VillageActivityCategoryController::class, 'store'], ['as' => 'village_activity_category_store']);
+        $routes->group('category', static function ($routes) {
+            $routes->get('/', [CategoryController::class, 'index'], ['as' => 'category_index']);
+            $routes->get('(:num)', [[CategoryController::class, 'edit'], '$1'], ['as' => 'category_edit']);
+            $routes->put('(:num)', [[CategoryController::class, 'update'], '$1'], ['as' => 'category_update']);
+            $routes->delete('(:num)', [[CategoryController::class, 'destroy'], '$1'], ['as' => 'category_destroy']);
+            $routes->post('/', [CategoryController::class, 'store'], ['as' => 'category_store']);
         });
 
-        $routes->group('village-activity-post', static function ($routes) {
-            $routes->get('(:segment)', [[VillageActivityPostController::class, 'index'], '$1'], ['as' => 'village_activity_post_index']);
-            $routes->get('(:segment)/create', [[VillageActivityPostController::class, 'create'], '$1'], ['as' => 'village_activity_post_create']);
-            $routes->get('(:segment)/(:num)', [[VillageActivityPostController::class, 'edit'], '$1/$2'], ['as' => 'village_activity_post_edit']);
-            $routes->put('(:segment)/(:num)', [[VillageActivityPostController::class, 'update'], '$1/$2'], ['as' => 'village_activity_post_update']);
-            $routes->delete('(:segment)/(:num)', [[VillageActivityPostController::class, 'destroy'], '$1/$2'], ['as' => 'village_activity_post_destroy']);
-            $routes->post('(:segment)', [[VillageActivityPostController::class, 'store'], '$1'], ['as' => 'village_activity_post_store']);
+        $routes->group('post', static function ($routes) {
+            $routes->get('(:segment)', [[PostController::class, 'index'], '$1'], ['as' => 'post_index']);
+            $routes->get('(:segment)/create', [[PostController::class, 'create'], '$1'], ['as' => 'post_create']);
+            $routes->get('(:segment)/(:num)', [[PostController::class, 'edit'], '$1/$2'], ['as' => 'post_edit']);
+            $routes->put('(:segment)/(:num)', [[PostController::class, 'update'], '$1/$2'], ['as' => 'post_update']);
+            $routes->delete('(:segment)/(:num)', [[PostController::class, 'destroy'], '$1/$2'], ['as' => 'post_destroy']);
+            $routes->post('(:segment)', [[PostController::class, 'store'], '$1'], ['as' => 'post_store']);
+        });
+
+        $routes->group('service', static function ($routes) {
+            $routes->get('/', [ServiceController::class, 'index'], ['as' => 'service_index']);
+            $routes->get('(:num)', [[ServiceController::class, 'edit'], '$1'], ['as' => 'service_edit']);
+            $routes->put('(:num)', [[ServiceController::class, 'update'], '$1'], ['as' => 'service_update']);
+            $routes->delete('(:num)', [[ServiceController::class, 'destroy'], '$1'], ['as' => 'service_destroy']);
+            $routes->post('/', [ServiceController::class, 'store'], ['as' => 'service_store']);
+        });
+
+        $routes->group('lapak-umkm', static function ($routes) {
+            $routes->get('/', [LapakUmkmController::class, 'index'], ['as' => 'lapak_umkm_index']);
+            $routes->put('status', [LapakUmkmController::class, 'change_status'], ['as' => 'lapak_umkm_status']);
+            $routes->get('(:num)', [[LapakUmkmController::class, 'edit'], '$1'], ['as' => 'lapak_umkm_edit']);
+            $routes->put('(:num)', [[LapakUmkmController::class, 'update'], '$1'], ['as' => 'lapak_umkm_update']);
+            $routes->delete('(:num)', [[LapakUmkmController::class, 'destroy'], '$1'], ['as' => 'lapak_umkm_destroy']);
+            $routes->post('/', [LapakUmkmController::class, 'store'], ['as' => 'lapak_umkm_store']);
         });
     }
 );
